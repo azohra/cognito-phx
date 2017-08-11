@@ -15,8 +15,16 @@
     <div class="container">
       <div class="row">
         <ul class="nav nav-pills pull-right">
-          <li><a href="/">Log in</a></li>
-          <li><a href="/">About</a></li>
+          <li>
+            <%= link "/", to: page_path(@conn, :index) %>          
+          </li>
+          <li>
+            <%= if Plug.Conn.get_session(@conn, "authenticated") == true do %>
+              <%= link "Sign out", to: session_path(@conn, :delete), method: "delete" %>
+            <% else %>
+              <%= link "Sign in", to: session_path(@conn, :new), method: "get" %>
+            <% end %>
+          </li>
         </ul>
       </div>
 

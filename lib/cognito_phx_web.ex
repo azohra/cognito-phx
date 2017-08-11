@@ -40,6 +40,7 @@ defmodule CognitoPhxWeb do
       import CognitoPhxWeb.Router.Helpers
       import CognitoPhxWeb.ErrorHelpers
       import CognitoPhxWeb.Gettext
+      import Formulator
     end
   end
 

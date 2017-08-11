@@ -18,6 +18,15 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+config :aws,
+  key: System.get_env("AWS_ACCESS_KEY_ID"),
+  secret: System.get_env("AWS_SECRET_ACCESS_KEY"),
+  region: System.get_env("AWS_REGION") || "us-east-1",
+  client_id: System.get_env("AWS_AZOHRA_CLIENT_ID") || "3ilgtakk6l650do644aqq18210",
+  user_pool_id: System.get_env("AWS_AZOHRA_USER_POOL_ID") || "us-east-1_Dy9nsBdBM"
+  # bucket: "florin-test"
+
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
